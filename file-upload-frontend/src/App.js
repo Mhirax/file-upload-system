@@ -66,7 +66,7 @@ export default function App() {
         <FileUpload />
 
         <p style={{ marginTop:'2rem', fontSize:12, color:'#2a2a3a' }}>
-          Files stored securely via MongoDB GridFS
+          Files stored securely via MongoDB GridFS & Developed By Minoka Wickramasinghe
         </p>
       </div>
     </div>
