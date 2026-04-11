@@ -13,18 +13,19 @@ process.on('unhandledRejection', (err) => {
   console.error('💥 Unhandled Rejection:', err);
 });
 
-/* ✅ MANUAL CORS — handles preflight without path-to-regexp issues */
+const allowedOrigins = [
+  'http://localhost:3000',
+  process.env.FRONTEND_URL, 
+];
+
 app.use((req, res, next) => {
-  res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
+  const origin = req.headers.origin;
+  if (allowedOrigins.includes(origin)) {
+    res.setHeader('Access-Control-Allow-Origin', origin);
+  }
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, DELETE, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
-  res.setHeader('Access-Control-Allow-Credentials', 'false');
-
-  // ✅ respond to preflight immediately
-  if (req.method === 'OPTIONS') {
-    return res.sendStatus(200);
-  }
-
+  if (req.method === 'OPTIONS') return res.sendStatus(200);
   next();
 });
 
