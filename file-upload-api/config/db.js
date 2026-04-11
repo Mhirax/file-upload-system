@@ -1,11 +1,14 @@
 const mongoose = require('mongoose');
+const { initGFS } = require('../controllers/fileController');
 
 const connectDB = async () => {
   try {
-    const conn = await mongoose.connect(process.env.MONGO_URI);
-    console.log(`MongoDB Connected: ${conn.connection.host}`);
+    await mongoose.connect(process.env.MONGO_URI);
+    console.log(`✅ MongoDB Connected: ${mongoose.connection.host}`);
+    initGFS(mongoose.connection); // ✅ pass mongoose.connection, not conn
+    return mongoose.connection;
   } catch (error) {
-    console.error('DB Connection Error:', error.message);
+    console.error('❌ DB Connection Error:', error.message);
     process.exit(1);
   }
 };
