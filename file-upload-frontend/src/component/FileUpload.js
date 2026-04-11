@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react';
 import axios from 'axios';
 
-const API = axios.create({ baseURL: 'http://localhost:5001/api/files' });
+const API = axios.create({ baseURL: 'https://file-upload-api-mx3u.onrender.com' });
 const fmt = (b) => b < 1024 ? b + 'B' : b < 1048576 ? (b/1024).toFixed(1) + 'KB' : (b/1048576).toFixed(1) + 'MB';
 
 export default function FileUpload() {
