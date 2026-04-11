@@ -11,8 +11,8 @@
 
 ## 📸 Demo
 
-> Frontend → [https://your-app.vercel.app](https://your-app.vercel.app)  
-> Backend API → [https://your-api.onrender.com](https://your-api.onrender.com)
+> Frontend → [https://syntecx-hub-file-uploader.vercel.app](https://syntecx-hub-file-uploader.vercel.app)  
+> Backend API → [https://file-upload-api-mx3u.onrender.com](https://file-upload-api-mx3u.onrender.com)
 
 ---
 
